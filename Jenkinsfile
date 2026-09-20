@@ -1,15 +1,11 @@
 pipeline{
     agent any
     stages {
-        stage("echo") {
-            steps {
-                echo "Branch name is ${env.BRANCH_NAME}"
-            }
-        }
+
         stage("test") {
             when {
                 expression {
-                    env.BRANCH_NAME == 'dev'
+                    env.GIT_BRANCH == 'dev'
                 }
             }
             steps {
@@ -19,7 +15,7 @@ pipeline{
         stage("build") {
             when {
                 expression {
-                    env.BRANCH_NAME == 'jenkins-jobs'
+                    env.GIT_BRANCH == 'jenkins-jobs'
                 }
             }
             steps {
@@ -29,7 +25,7 @@ pipeline{
         stage("deploy") {
             when {
                 expression {
-                    env.BRANCH_NAME == 'jenkins-jobs'
+                    env.GIT_BRANCH == 'jenkins-jobs'
                 }
             }
             steps {
