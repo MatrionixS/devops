@@ -1,6 +1,11 @@
 pipeline{
     agent any
     stages {
+        stage("echo") {
+            steps {
+                echo "Branch name is ${env.BRANCH_NAME}"
+            }
+        }
         stage("test") {
             when {
                 expression {
