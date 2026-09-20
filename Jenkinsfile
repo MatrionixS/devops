@@ -4,7 +4,7 @@ pipeline{
         stage("test") {
             when {
                 expression {
-                    $BRANCH_NAME == 'dev'
+                    env.BRANCH_NAME == 'dev'
                 }
             }
             steps {
@@ -14,7 +14,7 @@ pipeline{
         stage("build") {
             when {
                 expression {
-                    $BRANCH_NAME == 'jenkins-jobs'
+                    env.BRANCH_NAME == 'jenkins-jobs'
                 }
             }
             steps {
@@ -24,7 +24,7 @@ pipeline{
         stage("deploy") {
             when {
                 expression {
-                    $BRANCH_NAME == 'jenkins-jobs'
+                    env.BRANCH_NAME == 'jenkins-jobs'
                 }
             }
             steps {
