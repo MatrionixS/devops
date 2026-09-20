@@ -1,35 +1,34 @@
+def gv
+
 pipeline{
     agent any
     stages {
-
-        stage("test") {
-            when {
-                expression {
-                    env.GIT_BRANCH == 'dev'
+        stage("init") {
+            steps {
+                script {
+                    gv = load "jenkins.groovy"
                 }
             }
+        }
+        stage("test") {
             steps {
-                echo "Testing the application..."
+                script {
+                    gv.testApp
+                }
             }
         }
         stage("build") {
-            when {
-                expression {
-                    env.GIT_BRANCH == 'jenkins-jobs'
-                }
-            }
             steps {
-                echo "Building the application..."
+               script {
+                gv.buildApp
+               }
             }
         }
         stage("deploy") {
-            when {
-                expression {
-                    env.GIT_BRANCH == 'jenkins-jobs'
-                }
-            }
             steps {
-                echo "Deploying the application..."
+                script {
+                gv.deployApp
+                }
             }
         }
     }
