@@ -21,7 +21,7 @@ pipeline{
                     sh 'echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin'
                }
                echo 'Pushing docker image'
-               sh 'docker push baribars/demo-app:jma-1.1'
+               sh 'docker push baribars/demo-app:scr-1.0'
                }
             }
         }
