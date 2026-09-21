@@ -1,42 +1,27 @@
-def gv
-
 pipeline{
     agent any
+    tools {
+        maven 'maven-3.9.16'
+    }
     stages {
-        stage("init") {
-            steps {
-                script {
-                    gv = load "jenkins.groovy"
-                }
-            }
-        }
         stage("test") {
             steps {
                 script {
-                    gv.testApp()
+                sh 'maven clean test'
                 }
             }
         }
         stage("build") {
             steps {
                script {
-                    gv.buildApp()
+               echo 'Building docker image'
+               sh 'docker build -t  baribars/demo-app:scr-1.0 .'
+               withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: PASSWORD, usernameVariable: USERNAME)]) {
+                    sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
                }
-            }
-        }
-        stage("deploy") {
-            input {
-                message "Select the environment to deploy to"
-                ok "Done"
-                parameters {
-                    choice(name: 'ENV', choices: ['dev', 'stage', 'prod'], description: '')
-                }
-            }
-            steps {
-                script {
-                    gv.deployApp()
-                    echo "Deploying to ${ENV}"
-                }
+               echo 'Pushing docker image'
+               sh 'docker push baribars/demo-app:jma-1.1'
+               }
             }
         }
     }
