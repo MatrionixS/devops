@@ -8,7 +8,7 @@ pipeline{
        stage("init") {
             steps {
                 script {
-                echo "Executing pipeline for branch name $BRANCH_NAME"
+                echo "Executing pipeline for branch name $GIT_BRANCH"
                 }
             }
         }
