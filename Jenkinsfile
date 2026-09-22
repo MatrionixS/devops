@@ -5,6 +5,13 @@ pipeline{
         jdk 'java-25'
     }
     stages {
+       stage("init") {
+            steps {
+                script {
+                echo "Executing pipeline for branch name $BRANCH_NAME"
+                }
+            }
+        }
         stage("test") {
             steps {
                 script {
