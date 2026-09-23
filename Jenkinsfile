@@ -24,10 +24,10 @@ pipeline{
                 script {
                     echo 'Incrementing app version...'
                     sh 'mvn build-helper:parse-version versions:set \
-                     -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion} \
+                     -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.incrementalVersion} \
                     versions:commit'
                     def matcher = readFile('pom.xml') =~ '<version>(.+)</version>'
-                    def version = matcher[0][1]
+                    def version = matcher[1][1]
                     env.IMAGE_NAME = "$version-$BUILD_NUMBER"
                 }
             }
@@ -35,14 +35,24 @@ pipeline{
         stage("build") {
             steps {
                script {
-               echo 'Building docker image'
-               sh "docker build -t  baribars/demo-app:$IMAGE_NAME ."
-               withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
-                    sh 'echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin'
+                   echo 'Building docker image'
+                   sh "docker build -t  baribars/demo-app:$IMAGE_NAME ."
+                   withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
+                        sh 'echo "$PASSWORD" | docker login -u "$USERNAME" --password-stdin'
+                   }
+                   echo 'Pushing docker image'
+                   sh "docker push baribars/demo-app:$IMAGE_NAME"
                }
-               echo 'Pushing docker image'
-               sh "docker push baribars/demo-app:$IMAGE_NAME"
-               }
+            }
+        }
+        stage("Version prepare") {
+            steps {
+                script {
+                    echo 'Preparing app version test...'
+                    sh 'mvn build-helper:parse-version versions:set \
+                    -DnewVersion=\\\${parsedVersion.majorVersion}.\\\${parsedVersion.minorVersion}.\\\${parsedVersion.nextIncrementalVersion}-SNAPSHOT \
+                    versions:commit'
+                }
             }
         }
     }
