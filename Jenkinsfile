@@ -67,7 +67,7 @@ pipeline{
                         sh 'git branch'
                         sh 'git config --list'
 
-                        sh "git remote set-url origin https://${USERNAME}:${PASSWORD}github.com/MatrionixS/devops.git"
+                        sh "echo $PASSWORD | git remote set-url origin https://${USERNAME}:${--password-stdin}github.com/MatrionixS/devops.git"
                         sh 'git add .'
                         sh 'git commit -m "ci: version bump"'
                         sh 'git push origin HEAD:jenkinkis-jobs'
