@@ -70,7 +70,15 @@ pipeline{
                     sh 'git add .'
                     sh 'git commit -m "ci: version bump"'
                     sshagent(['github-ssh']) {
-                        sh 'git push origin HEAD:jenkinkis-jobs'
+                            sh '''
+                                mkdir -p "$HOME/.ssh"
+                                chmod 700 "$HOME/.ssh"
+
+                                ssh-keyscan -H github.com >> "$HOME/.ssh/known_hosts"
+                                chmod 600 "$HOME/.ssh/known_hosts"
+
+                                git push origin HEAD:jenkinkis-jobs
+                            '''
                     }
                 }
             }
