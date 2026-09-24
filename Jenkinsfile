@@ -70,9 +70,7 @@ pipeline{
                     sh 'git add .'
                     sh 'git commit -m "ci: version bump"'
                     sshagent(['github-ssh']) {
-                        sh '''
-                            git push origin HEAD:jenkinkis-jobs
-                        '''
+                        sh 'git push origin HEAD:jenkinkis-jobs'
                     }
                 }
             }
