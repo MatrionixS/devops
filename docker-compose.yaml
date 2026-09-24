@@ -1,12 +1,5 @@
 services:
-  jenkins:
-    image: jenkins/jenkins:lts
+  java-app:
+    image: baribars/demo-app:1.0.1-63
     ports:
       - 8080:8080
-      - 50000:50000
-    volumes:
-      - jenkins_home:/var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-
-volumes:
-  jenkins_home:
