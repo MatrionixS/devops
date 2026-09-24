@@ -69,7 +69,11 @@ pipeline{
                     sh 'git remote set-url origin git@github.com:MatrionixS/devops.git'
                     sh 'git add .'
                     sh 'git commit -m "ci: version bump"'
-                    sh 'git push origin HEAD:jenkinkis-jobs'
+                    sshagent(['github-ssh']) {
+                        sh '''
+                            git push origin HEAD:jenkinkis-jobs
+                        '''
+                    }
                 }
             }
         }
