@@ -56,7 +56,7 @@ pipeline{
             }
         }
 
-        stage("Commit version update2") {
+        stage("Commit version") {
             steps {
                 script {
                     sh 'git config --global user.email "jenkins@example.com"'
@@ -75,6 +75,19 @@ pipeline{
                 }
             }
         }
+
+        stage("Deploy image") {
+            steps {
+                script {
+                    echo 'Deploying docker image to EC2...'
+                    def dockerCmd = "docker run -p 8080:8080 -d baribars/demo-app:${IMAGE_NAME}"
+                    sshagent(['droplet-ssh']) {
+                        sh "ssh -o StrictHostKeyChecking=no root@157.230.102.162 ${dockerCmd}"
+                    }
+                }
+            }
+        }
+
     }
 
 }
