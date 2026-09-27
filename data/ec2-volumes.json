@@ -1,0 +1,46 @@
+{
+  "000000000000/us-east-1::vol-8567775b5d123bd00" : {
+    "volumeId" : "vol-8567775b5d123bd00",
+    "volumeType" : "gp3",
+    "size" : 8,
+    "state" : "in-use",
+    "availabilityZone" : "us-east-1c",
+    "encrypted" : false,
+    "iops" : 0,
+    "throughput" : null,
+    "snapshotId" : null,
+    "createTime" : "2026-09-27T13:46:57.347162697Z",
+    "region" : "us-east-1",
+    "tags" : [ ],
+    "attachments" : [ {
+      "instanceId" : "i-0c27b5aaaaf231d77",
+      "device" : "/dev/xvda",
+      "state" : "attached",
+      "attachTime" : "2026-09-27T13:46:57.347162727Z",
+      "deleteOnTermination" : true,
+      "volumeId" : "vol-8567775b5d123bd00"
+    } ]
+  },
+  "000000000000/us-east-1::vol-da9b462dd29891f58" : {
+    "volumeId" : "vol-da9b462dd29891f58",
+    "volumeType" : "gp3",
+    "size" : 8,
+    "state" : "in-use",
+    "availabilityZone" : "us-east-1c",
+    "encrypted" : false,
+    "iops" : 0,
+    "throughput" : null,
+    "snapshotId" : null,
+    "createTime" : "2026-09-27T13:42:44.596486200Z",
+    "region" : "us-east-1",
+    "tags" : [ ],
+    "attachments" : [ {
+      "instanceId" : "i-710e5a2e5e03872a9",
+      "device" : "/dev/xvda",
+      "state" : "attached",
+      "attachTime" : "2026-09-27T13:42:44.596486230Z",
+      "deleteOnTermination" : true,
+      "volumeId" : "vol-da9b462dd29891f58"
+    } ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "000000000000/SergioUserCli" : {
+    "userId" : "AIDAJTHH7T3P69MJ9N4F",
+    "userName" : "SergioUserCli",
+    "path" : "/",
+    "arn" : "arn:aws:iam::000000000000:user/SergioUserCli",
+    "createDate" : "2026-09-27T14:00:02.156170091Z",
+    "passwordLastUsed" : null,
+    "tags" : { },
+    "groupNames" : [ "SergioGroupCli" ],
+    "attachedPolicyArns" : [ ],
+    "inlinePolicies" : { },
+    "permissionsBoundaryArn" : null
+  }
+}

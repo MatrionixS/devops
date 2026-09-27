@@ -1,0 +1,12 @@
+{
+  "000000000000/SergioGroupCli" : {
+    "groupId" : "AGPA2JSHDGGL66UMNHUG",
+    "groupName" : "SergioGroupCli",
+    "path" : "/",
+    "arn" : "arn:aws:iam::000000000000:group/SergioGroupCli",
+    "createDate" : "2026-09-27T13:55:23.467122199Z",
+    "userNames" : [ "SergioUserCli" ],
+    "attachedPolicyArns" : [ "arn:aws:iam::aws:policy/AmazonEC2FullAccess", "arn:aws:iam::000000000000:policy/changePass" ],
+    "inlinePolicies" : { }
+  }
+}

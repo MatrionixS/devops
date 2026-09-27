@@ -1,34 +1,39 @@
 //describe all vpcs
 aws ec2 describe-vpcs
 //describe all security groups or group by id parameter
-aws ec2 describe-security-groups (optional --group-ids someId)
+aws --endpoint-url=http://localhost:4566 ec2 describe-security-groups (optional --group-ids someId)
 //add firewall for security group
-aws ec2 authorize-security-group-ingress \
---group-id someId
---protocol tcp\
+aws --endpoint-url=http://localhost:4566 ec2 authorize-security-group-ingress \
+--group-id sg-f0f7787cb56faaaca \
+--protocol tcp \
 --port 22 \
---cidr someIpAddress
+--cidr 0.0.0.0/0
 //create empty security group
-aws ec2 create-security-group \
+aws --endpoint-url=http://localhost:4566 ec2 create-security-group \
 --group-name my-sh \
 --description "My Sg" \
---vpi-id someId
+--vpc-id vpc-default-us-east-1
 //create key pair and save to local file
-aws ec2 create-key-pair \
+aws --endpoint-url=http://localhost:4566 ec2 create-key-pair \
 --key-name MyKpCli \
 --query 'KeyMaterial' \
 --output text > MyKpCli.pem
 //describe all subnets
-aws ec2 describe-subnets
+aws --endpoint-url=http://localhost:4566 ec2 describe-subnets
 //describe all images
 aws ec2 describe-images
 //create ec2 instance
-aws ec2 run-instances \
---image-id ami-someId
+aws --endpoint-url=http://localhost:4566 ec2 run-instances \
+--instance-name test \
+--image-id ami-0abcdef1234567890
 --count 1 \
 --instance-type t2.micro \
 --key-name MyKpCli \
---security-group-ids sg-someId \
---subnet-id subnet-someId
+--security-group-ids sg-f0f7787cb56faaaca \
+--subnet-id subnet-default-us-east-1-c
 //describe all instances
-aws ec2 describe-instances
+aws --endpoint-url=http://localhost:4566 ec2 describe-instances
+//filtering with query
+aws --endpoint-url=http://localhost:4566 ec2 describe-instances \
+--filters "Name=instance-type,Values=t2.micro" \
+--query "Reservations[].Instances[].InstanceId"

@@ -1,0 +1,169 @@
+{
+  "000000000000/us-east-1::i-0c27b5aaaaf231d77" : {
+    "instanceId" : "i-0c27b5aaaaf231d77",
+    "imageId" : "ami-0abcdef1234567890",
+    "state" : {
+      "code" : 0,
+      "name" : "pending"
+    },
+    "stateTransitionReason" : null,
+    "instanceType" : "t2.micro",
+    "placement" : {
+      "availabilityZone" : "us-east-1c",
+      "tenancy" : "default",
+      "groupName" : null
+    },
+    "subnetId" : "subnet-default-us-east-1-c",
+    "vpcId" : "vpc-default-us-east-1",
+    "privateIpAddress" : "172.31.32.11",
+    "publicIpAddress" : null,
+    "privateDnsName" : "ip-172-31-32-11.ec2.internal",
+    "publicDnsName" : null,
+    "associatePublicIp" : true,
+    "keyName" : "MyKpCli",
+    "securityGroups" : [ {
+      "groupId" : "sg-f0f7787cb56faaaca",
+      "groupName" : "my-sh"
+    } ],
+    "networkInterfaces" : [ {
+      "networkInterfaceId" : "eni-418d7a4a53f2c657b",
+      "subnetId" : "subnet-default-us-east-1-c",
+      "vpcId" : "vpc-default-us-east-1",
+      "description" : null,
+      "ownerId" : "000000000000",
+      "status" : "in-use",
+      "macAddress" : null,
+      "privateIpAddress" : "172.31.32.11",
+      "privateDnsName" : "ip-172-31-32-11.ec2.internal",
+      "sourceDestCheck" : true,
+      "groups" : [ {
+        "groupId" : "sg-f0f7787cb56faaaca",
+        "groupName" : "my-sh"
+      } ],
+      "attachmentId" : "eni-attach-621fda39d8ea70a8b",
+      "deviceIndex" : 0,
+      "attachTime" : "2026-09-27T13:46:57.347Z"
+    } ],
+    "architecture" : "x86_64",
+    "hypervisor" : "xen",
+    "virtualizationType" : "hvm",
+    "rootDeviceName" : "/dev/xvda",
+    "rootDeviceType" : "ebs",
+    "launchTime" : "2026-09-27T13:46:57.347145367Z",
+    "amiLaunchIndex" : 0,
+    "clientToken" : "93aa3005-1180-4839-a2f2-a6c4b6834c20",
+    "monitoring" : "disabled",
+    "sourceDestCheck" : true,
+    "ebsOptimized" : false,
+    "enaSupport" : true,
+    "iamInstanceProfileArn" : null,
+    "stateReasonCode" : null,
+    "stateReasonMessage" : null,
+    "region" : "us-east-1",
+    "tags" : [ {
+      "key" : "Name",
+      "value" : "test"
+    } ],
+    "rootVolumeId" : "vol-8567775b5d123bd00",
+    "disableApiStop" : false,
+    "disableApiTermination" : false,
+    "metadataOptions" : {
+      "state" : "applied",
+      "httpTokens" : "optional",
+      "httpPutResponseHopLimit" : 1,
+      "httpEndpoint" : "enabled",
+      "httpProtocolIpv6" : "disabled",
+      "instanceMetadataTags" : "disabled"
+    },
+    "creditSpecificationCpuCredits" : "standard",
+    "dockerContainerId" : "2da411b08e6fe6b21eb7bdceae6e7c602fc5a572adc13d69bebc0c7d68efdf52",
+    "containerBridgeIp" : null,
+    "imdsSourceIp" : null,
+    "userData" : null,
+    "sshHostPort" : 2201,
+    "terminatedAt" : 0,
+    "publishedPorts" : { }
+  },
+  "000000000000/us-east-1::i-710e5a2e5e03872a9" : {
+    "instanceId" : "i-710e5a2e5e03872a9",
+    "imageId" : "ami-0abcdef1234567890",
+    "state" : {
+      "code" : 16,
+      "name" : "running"
+    },
+    "stateTransitionReason" : null,
+    "instanceType" : "t2.micro",
+    "placement" : {
+      "availabilityZone" : "us-east-1c",
+      "tenancy" : "default",
+      "groupName" : null
+    },
+    "subnetId" : "subnet-default-us-east-1-c",
+    "vpcId" : "vpc-default-us-east-1",
+    "privateIpAddress" : "172.31.32.10",
+    "publicIpAddress" : "127.0.0.1",
+    "privateDnsName" : "ip-172-31-32-10.ec2.internal",
+    "publicDnsName" : "localhost",
+    "associatePublicIp" : true,
+    "keyName" : null,
+    "securityGroups" : [ {
+      "groupId" : "sg-default-us-east-1",
+      "groupName" : "default"
+    } ],
+    "networkInterfaces" : [ {
+      "networkInterfaceId" : "eni-fdb674a5f8a788459",
+      "subnetId" : "subnet-default-us-east-1-c",
+      "vpcId" : "vpc-default-us-east-1",
+      "description" : null,
+      "ownerId" : "000000000000",
+      "status" : "in-use",
+      "macAddress" : null,
+      "privateIpAddress" : "172.31.32.10",
+      "privateDnsName" : "ip-172-31-32-10.ec2.internal",
+      "sourceDestCheck" : true,
+      "groups" : [ {
+        "groupId" : "sg-default-us-east-1",
+        "groupName" : "default"
+      } ],
+      "attachmentId" : "eni-attach-b419c9bc987d5e5c8",
+      "deviceIndex" : 0,
+      "attachTime" : "2026-09-27T13:42:44.596Z"
+    } ],
+    "architecture" : "x86_64",
+    "hypervisor" : "xen",
+    "virtualizationType" : "hvm",
+    "rootDeviceName" : "/dev/xvda",
+    "rootDeviceType" : "ebs",
+    "launchTime" : "2026-09-27T13:42:44.596472710Z",
+    "amiLaunchIndex" : 0,
+    "clientToken" : "19c68fe0-04d5-41f2-a06f-89bce1430c85",
+    "monitoring" : "disabled",
+    "sourceDestCheck" : true,
+    "ebsOptimized" : false,
+    "enaSupport" : true,
+    "iamInstanceProfileArn" : null,
+    "stateReasonCode" : null,
+    "stateReasonMessage" : null,
+    "region" : "us-east-1",
+    "tags" : [ ],
+    "rootVolumeId" : "vol-da9b462dd29891f58",
+    "disableApiStop" : false,
+    "disableApiTermination" : false,
+    "metadataOptions" : {
+      "state" : "applied",
+      "httpTokens" : "optional",
+      "httpPutResponseHopLimit" : 1,
+      "httpEndpoint" : "enabled",
+      "httpProtocolIpv6" : "disabled",
+      "instanceMetadataTags" : "disabled"
+    },
+    "creditSpecificationCpuCredits" : "standard",
+    "dockerContainerId" : "3354a9a26bb0e6e8fb6b72f79cecab4df2807b8c2e9e7197053ddc6c87c96f3d",
+    "containerBridgeIp" : "172.31.32.10",
+    "imdsSourceIp" : "172.18.0.3",
+    "userData" : null,
+    "sshHostPort" : 2200,
+    "terminatedAt" : 0,
+    "publishedPorts" : { }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "000000000000/arn:aws:iam::aws:policy/AmazonEC2FullAccess" : {
+    "policyId" : "ANPAZJD1I3Z2IN9U5J1X",
+    "policyName" : "AmazonEC2FullAccess",
+    "path" : "/",
+    "arn" : "arn:aws:iam::aws:policy/AmazonEC2FullAccess",
+    "description" : "Provides full access to Amazon EC2 via the AWS Management Console.",
+    "defaultVersionId" : "v5",
+    "attachmentCount" : 1,
+    "nextVersionNumber" : 6,
+    "createDate" : "2015-02-06T18:40:00Z",
+    "updateDate" : "2018-11-27T02:16:56Z",
+    "tags" : { },
+    "versions" : {
+      "v5" : {
+        "versionId" : "v5",
+        "document" : "{\"Statement\":[{\"Action\":[\"ec2:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"elasticloadbalancing:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"cloudwatch:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"autoscaling:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"iam:CreateServiceLinkedRole\"],\"Condition\":{\"StringEquals\":{\"iam:AWSServiceName\":[\"autoscaling.amazonaws.com\",\"ec2scheduled.amazonaws.com\",\"elasticloadbalancing.amazonaws.com\",\"spot.amazonaws.com\",\"spotfleet.amazonaws.com\",\"transitgateway.amazonaws.com\"]}},\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}",
+        "defaultVersion" : true,
+        "createDate" : "2018-11-27T02:16:56Z"
+      }
+    },
+    "defaultDocument" : "{\"Statement\":[{\"Action\":[\"ec2:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"elasticloadbalancing:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"cloudwatch:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"autoscaling:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"},{\"Action\":[\"iam:CreateServiceLinkedRole\"],\"Condition\":{\"StringEquals\":{\"iam:AWSServiceName\":[\"autoscaling.amazonaws.com\",\"ec2scheduled.amazonaws.com\",\"elasticloadbalancing.amazonaws.com\",\"spot.amazonaws.com\",\"spotfleet.amazonaws.com\",\"transitgateway.amazonaws.com\"]}},\"Effect\":\"Allow\",\"Resource\":\"*\"}],\"Version\":\"2012-10-17\"}"
+  },
+  "000000000000/arn:aws:iam::000000000000:policy/changePass" : {
+    "policyId" : "ANPAJQQRU20T26FJ5BCO",
+    "policyName" : "changePass",
+    "path" : "/",
+    "arn" : "arn:aws:iam::000000000000:policy/changePass",
+    "description" : null,
+    "defaultVersionId" : "v1",
+    "attachmentCount" : 1,
+    "nextVersionNumber" : 2,
+    "createDate" : "2026-09-27T14:26:01.122293867Z",
+    "updateDate" : "2026-09-27T14:26:01.122293867Z",
+    "tags" : { },
+    "versions" : {
+      "v1" : {
+        "versionId" : "v1",
+        "document" : "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"iam:ChangePassword\"\n      ],\n      \"Resource\": [\n        \"arn:aws:iam::000000000000:user/${aws:username}\"\n      ]\n    },\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"iam:GetAccountPasswordPolicy\"\n      ],\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+        "defaultVersion" : true,
+        "createDate" : "2026-09-27T14:26:01.122293867Z"
+      }
+    },
+    "defaultDocument" : "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"iam:ChangePassword\"\n      ],\n      \"Resource\": [\n        \"arn:aws:iam::000000000000:user/${aws:username}\"\n      ]\n    },\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"iam:GetAccountPasswordPolicy\"\n      ],\n      \"Resource\": \"*\"\n    }\n  ]\n}\n"
+  }
+}

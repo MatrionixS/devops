@@ -1,0 +1,46 @@
+// create user group
+aws --endpoint-url=http://localhost:4566 iam create-group \
+--group-name SergioGroupCli
+
+// create aws user
+aws --endpoint-url=http://localhost:4566 iam create-user \
+--user-name SergioUserCli
+
+// add user to group
+aws --endpoint-url=http://localhost:4566 iam add-user-to-group \
+--user-name SergioUserCli \
+--group-name SergioGroupCli
+
+// show user group by name
+aws --endpoint-url=http://localhost:4566 iam get-group \
+--group-name SergioGroupCli
+
+//attach policy to user group
+aws --endpoint-url=http://localhost:4566 iam attach-group-policy \
+--group-name SergioGroupCli \
+--policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess
+
+//get arn for iam policy AmazonEC2FullAccess
+aws --endpoint-url=http://localhost:4566 iam list-policies --query 'Policies[?PolicyName==`AmazonEC2FullAccess`].Arn' --output text
+
+// list attached policies for user group
+aws --endpoint-url=http://localhost:4566 iam list-attached-group-policies \
+--group-name SergioGroupCli
+
+//create login profile to be able to login through console UI
+aws --endpoint-url=http://localhost:4566 iam create-login-profile \
+--user-name SergioUserCli \
+--password test! \
+--password-reset-required
+
+//create iam policy from file
+aws --endpoint-url=http://localhost:4566 iam create-policy \
+--policy-name changePass \
+--policy-document file://test.json
+
+//crete access key
+aws --endpoint-url=http://localhost:4566 iam create-access-key \
+--user-name SergioUserCli
+
+aws --endpoint-url=http://localhost:4566 iam list-access-keys \
+--user-name SergioUserCli
