@@ -50,6 +50,9 @@ pipeline{
                 script {
                     echo 'Deploying docker image to K8s...'
                     sh "export KUBECONFIG=./config.yaml"
+                    sh "kubectl config view"
+                    sh "kubectl config current-context"
+                    sh "kubectl get nodes"
                     sh "kubectl apply -f imageSecret.yaml"
                     sh "kubectl apply -f my-app-deployment.yaml"
                 }
