@@ -10,7 +10,7 @@ COPY src ./src
 
 RUN mvn clean install -DskipTests
 
-FROM eclipse-temurin:25-jre-alpine
+FROM eclipse-temurin:21-jre-alpine
 
 WORKDIR /app
 
