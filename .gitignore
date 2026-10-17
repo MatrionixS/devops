@@ -7,6 +7,8 @@ imageSecret.yaml
 ### IntelliJ IDEA ###
 .idea/*
 ./data/*
+./data
+config*
 ### Eclipse ###
 .apt_generated
 .classpath
