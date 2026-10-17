@@ -6,7 +6,7 @@ target/
 imageSecret.yaml
 ### IntelliJ IDEA ###
 .idea/*
-
+./data/*
 ### Eclipse ###
 .apt_generated
 .classpath

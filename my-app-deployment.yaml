@@ -14,6 +14,8 @@ spec:
       labels:
         app: my-app
     spec:
+      imagePullSecrets:
+      - name: regcred
       containers:
         - name: my-app
           image: baribars/demo-app
