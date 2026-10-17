@@ -45,6 +45,15 @@ pipeline{
                }
             }
         }
+        stage("Deploy to k8s") {
+            steps {
+                script {
+                    echo 'Deploying docker image to K8s...'
+                    ssh "kubectl apply -f imageSecret.yaml"
+                    ssh "kubectl apply -f my-app-deployment.yaml"
+                }
+            }
+        }
         stage("Version prepare") {
             steps {
                 script {
@@ -76,17 +85,6 @@ pipeline{
             }
         }
 
-//         stage("Deploy image") {
-//             steps {
-//                 script {
-//                     echo 'Deploying docker image to EC2...'
-//                     def dockerCmd = "docker run -p 8080:8080 -d baribars/demo-app:${IMAGE_NAME}"
-//                     sshagent(['droplet-ssh']) {
-//                         sh "ssh -o StrictHostKeyChecking=no root@157.230.102.162 ${dockerCmd}"
-//                     }
-//                 }
-//             }
-//         }
         stage("Deploy image") {
             steps {
                 script {
